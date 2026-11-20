@@ -1,0 +1,452 @@
+[
+  {
+    "id": "p1",
+    "name": "Ajinkya Shukla",
+    "gender": "male",
+    "age": 19,
+    "photo": "https://images.unsplash.com/photo-1634130259367-456626db4296?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJveHMlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D",
+    "bio": "Looking for genuine connections and good conversations.",
+    "city": "Hindupur",
+    "interests": [
+      "Music",
+      "Travel",
+      "Coffee"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p2",
+    "name": "Akshitha Prabhakaran",
+    "gender": "female",
+    "age": 26,
+    "photo": "https://media.istockphoto.com/id/1187198544/photo-portrait-of-a-real-woman-in-her-20s.jpg?s=170667a&w=0&k=20&c=bYdT0gVZCDbmSl_FwerKqOzca6DZF-dFZnZL3ap64Ys=",
+    "bio": "Love exploring new places and meeting interesting people.",
+    "city": "Jalgaon",
+    "interests": [
+      "Travel",
+      "Movies",
+      "Food"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p3",
+    "name": "Pahal Holla",
+    "gender": "male",
+    "age": 25,
+    "photo": "https://tse1.mm.bing.net/th/id/OIP.dzryGEzuY_tkTkm-gvcqXQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "Easygoing person who enjoys spontaneous adventures.",
+    "city": "Jabalpur",
+    "interests": [
+      "Fitness",
+      "Music",
+      "Movies"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p4",
+    "name": "Viti Gamskar",
+    "gender": "female",
+    "age": 27,
+    "photo": "https://media.istockphoto.com/id/925798878/photo/body-positive-young-woman-portrait.jpg?s=170667a&w=0&k=20&c=TV1zmp3jJisG5tzE59rWLEsQJ7TJcyO26_rovxtdMJ0=",
+    "bio": "Here for meaningful conversations and fun memories.",
+    "city": "Panchkula",
+    "interests": [
+      "Fashion",
+      "Travel",
+      "Music"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p5",
+    "name": "Siddharth Saniel",
+    "gender": "male",
+    "age": 29,
+    "photo": "https://cdn.pixabay.com/photo/2023/02/18/04/38/man-7797279_1280.jpg",
+    "bio": "Tech enthusiast, foodie, and weekend explorer.",
+    "city": "Tenali",
+    "interests": [
+      "Technology",
+      "Food",
+      "Travel"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p6",
+    "name": "Nandita Suvarna",
+    "gender": "female",
+    "age": 28,
+    "photo": "https://image.cdn2.seaart.me/2025-04-05/cvofvole878c73dvoe8g/ce0adaaf3f8fc1eb99707c685130d391_high.webp",
+    "bio": "Enjoying life one adventure and one coffee at a time.",
+    "city": "Firozabad",
+    "interests": [
+      "Coffee",
+      "Art",
+      "Movies"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p7",
+    "name": "Ravi Bangera",
+    "gender": "male",
+    "age": 27,
+    "photo": "https://i.pinimg.com/736x/e9/4c/32/e94c326d6ad7a19c780c4fcdc310255c.jpg",
+    "bio": "Love music, road trips, and making people laugh.",
+    "city": "Jhansi",
+    "interests": [
+      "Road Trips",
+      "Music",
+      "Photography"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p8",
+    "name": "Meera Prajapati",
+    "gender": "female",
+    "age": 25,
+    "photo": "https://tse3.mm.bing.net/th/id/OIP.FnsJOfSkTBm451fbOqNoKgAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "A little adventurous, a little artistic, always curious.",
+    "city": "Tadipatri",
+    "interests": [
+      "Art",
+      "Travel",
+      "Books"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p9",
+    "name": "Yatan Gugale",
+    "gender": "male",
+    "age": 26,
+    "photo": "https://tse1.mm.bing.net/th/id/OIP.INUeOSy20fTOEPY2zm4xRwHaJN?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "Always up for a new experience and a great playlist.",
+    "city": "Nandyal",
+    "interests": [
+      "Music",
+      "Gaming",
+      "Travel"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p10",
+    "name": "Archana Mardhekar",
+    "gender": "female",
+    "age": 24,
+    "photo": "https://tse3.mm.bing.net/th/id/OIP.i_p3rnuavmkarDVftJLqUgHaK5?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "Finding joy in the little things and new friendships.",
+    "city": "Khora",
+    "interests": [
+      "Dance",
+      "Music",
+      "Food"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p11",
+    "name": "Rahul Saniel",
+    "gender": "male",
+    "age": 29,
+    "photo": "https://tse2.mm.bing.net/th/id/OIP.MSnVxqyy3s2sWfHOO4ydYAHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "Love spontaneous plans, good food, and great company.",
+    "city": "Anantapuram",
+    "interests": [
+      "Food",
+      "Sports",
+      "Movies"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p12",
+    "name": "Sharanya Kulkarni",
+    "gender": "female",
+    "age": 26,
+    "photo": "https://image.cdn2.seaart.me/static/images/20250204/81ead0319ca78d3f147009815212daa2_high.webp",
+    "bio": "Creative soul who enjoys exploring and learning.",
+    "city": "Nadiad",
+    "interests": [
+      "Painting",
+      "Books",
+      "Travel"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p13",
+    "name": "Rohan Kumar",
+    "gender": "male",
+    "age": 28,
+    "photo": "https://i.pinimg.com/736x/e6/8a/d0/e68ad0c2eead30741097e0189b158a45.jpg",
+    "bio": "Into fitness, good vibes, and exploring new places.",
+    "city": "Warangal",
+    "interests": [
+      "Fitness",
+      "Travel",
+      "Sports"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p14",
+    "name": "Arpitha Prabhu",
+    "gender": "female",
+    "age": 32,
+    "photo": "https://tse4.mm.bing.net/th/id/OIP.PROQ-q7THu4Ag9duoTnojgHaJ3?r=0&w=685&h=913&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "Enjoy good conversations, travel, and a little adventure.",
+    "city": "Nagaon",
+    "interests": [
+      "Travel",
+      "Cooking",
+      "Music"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p15",
+    "name": "Jayanth Moolya",
+    "gender": "male",
+    "age": 22,
+    "photo": "https://images.pexels.com/photos/36876207/pexels-photo-36876207.jpeg?cs=srgb&dl=pexels-satya-pic-339537086-36876207.jpg&fm=jpg",
+    "bio": "Student, music lover, and always ready for a good adventure.",
+    "city": "Avadi",
+    "interests": [
+      "Music",
+      "Gaming",
+      "Movies"
+    ],
+    "likesMe": true
+  },
+  {
+    "id": "p16",
+    "name": "Neysa Tipparti",
+    "gender": "female",
+    "age": 19,
+    "photo": "https://i.pinimg.com/736x/76/b2/ce/76b2cee82d5e3c6ba953d5b7395cd902.jpg",
+    "bio": "Love making memories, discovering music, and meeting people.",
+    "city": "Surat",
+    "interests": [
+      "Music",
+      "Movies",
+      "Photography"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p17",
+    "name": "Nagesh Adiga",
+    "gender": "male",
+    "age": 21,
+    "photo": "https://i.pinimg.com/736x/80/99/ad/8099ad7830eb312fff4d2d6af1ebcafb.jpg",
+    "bio": "Laid-back, curious, and always looking for something new.",
+    "city": "Bhiwandi",
+    "interests": [
+      "Technology",
+      "Travel",
+      "Food"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p18",
+    "name": "Monisha Prabhakaran",
+    "gender": "female",
+    "age": 21,
+    "photo": "https://www.gethucinema.com/wp-content/uploads/2026/01/Preethi-Pagadala-0-EWuXHs6127.jpg",
+    "bio": "Love spending time with friends and discovering new places.",
+    "city": "Jammu",
+    "interests": [
+      "Travel",
+      "Dance",
+      "Food"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p19",
+    "name": "Hemang Namnaik",
+    "gender": "male",
+    "age": 20,
+    "photo": "https://i.pinimg.com/736x/80/99/ad/8099ad7830eb312fff4d2d6af1ebcafb.jpg",
+    "bio": "Enjoying good music, simple moments, and fun conversations.",
+    "city": "Thiruvananthapuram",
+    "interests": [
+      "Music",
+      "Fitness",
+      "Movies"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p20",
+    "name": "Aaradhya Shetty",
+    "gender": "female",
+    "age": 29,
+    "photo": "https://i.pinimg.com/736x/d7/0a/23/d70a23b5cda9c152d67ee09a328a509b.jpg",
+    "bio": "Adventurous at heart and always looking for good vibes.",
+    "city": "Saharanpur",
+    "interests": [
+      "Adventure",
+      "Music",
+      "Books"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p21",
+    "name": "Divyesh Salian",
+    "gender": "male",
+    "age": 21,
+    "photo": "https://i.pinimg.com/236x/65/18/90/6518900e98d6bc893094b3446fafc2d8.jpg",
+    "bio": "Love sports, meeting people, and weekend adventures.",
+    "city": "Raiganj",
+    "interests": [
+      "Sports",
+      "Travel",
+      "Gaming"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p22",
+    "name": "Sandhya Nair",
+    "gender": "female",
+    "age": 25,
+    "photo": "https://i.pinimg.com/736x/e0/29/bb/e029bb545e271886f9d284b3c14567df.jpg",
+    "bio": "A fan of sunsets, music, and long conversations.",
+    "city": "Kollam",
+    "interests": [
+      "Music",
+      "Travel",
+      "Photography"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p23",
+    "name": "Advaith Gatty",
+    "gender": "male",
+    "age": 22,
+    "photo": "https://i.pinimg.com/736x/18/79/39/187939619f335d569f48163facd028f5.jpg",
+    "bio": "Curious about everything and always up for adventures.",
+    "city": "Miryalaguda",
+    "interests": [
+      "Technology",
+      "Adventure",
+      "Movies"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p24",
+    "name": "Saisha Bhoja",
+    "gender": "female",
+    "age": 80,
+    "photo": "https://i.pinimg.com/736x/43/be/f4/43bef48cdda8293d99ca6ebd665cfcf9.jpg",
+    "bio": "Enjoying life's little moments and meeting new people.",
+    "city": "Firozabad",
+    "interests": [
+      "Books",
+      "Cooking",
+      "Music"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p25",
+    "name": "Ranveer Kouser",
+    "gender": "male",
+    "age": 23,
+    "photo": "https://i.pinimg.com/736x/d6/4c/40/d64c40f19ed15889754e1ff1907129cd.jpg",
+    "bio": "Love a good adventure, great food, and new experiences.",
+    "city": "Bikaner",
+    "interests": [
+      "Food",
+      "Travel",
+      "Fitness"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p26",
+    "name": "Vibha Belligatti",
+    "gender": "female",
+    "age": 24,
+    "photo": "https://image.tensorartassets.com/cdn-cgi/image/anim=false,plain=false,w=2048,f=jpeg,q=85/posts/images/613949366029402117/0d4bee86-228a-430f-8285-0cad6dc6ab5f.jpg",
+    "bio": "Friendly, curious, and always happy to explore.",
+    "city": "Jamshedpur",
+    "interests": [
+      "Travel",
+      "Movies",
+      "Music"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p27",
+    "name": "Brijesh Vernekar",
+    "gender": "male",
+    "age": 24,
+    "photo": "https://i.pinimg.com/originals/d0/96/6b/d0966b3bb8709d7c3b5b9add4926b5d3.jpg",
+    "bio": "Easygoing and happiest when exploring somewhere new.",
+    "city": "Pallavaram",
+    "interests": [
+      "Travel",
+      "Photography",
+      "Food"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p28",
+    "name": "Lavanya Fernandes",
+    "gender": "female",
+    "age": 27,
+    "photo": "https://hips.hearstapps.com/hmg-prod/images/whm080125-an2025-singleladies-003-68f68787ac145.jpg?resize=980:*",
+    "bio": "Love art, great food, and meeting people with good energy.",
+    "city": "Solapur",
+    "interests": [
+      "Art",
+      "Food",
+      "Fashion"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p29",
+    "name": "Arin Saha",
+    "gender": "male",
+    "age": 25,
+    "photo": "https://tse1.mm.bing.net/th/id/OIP.Xv_CXamS5sg9C3WcbfE3SgHaLB?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "bio": "A fan of spontaneous plans and memorable adventures.",
+    "city": "Guntakal",
+    "interests": [
+      "Music",
+      "Adventure",
+      "Sports"
+    ],
+    "likesMe": false
+  },
+  {
+    "id": "p30",
+    "name": "Anjali Pai",
+    "gender": "female",
+    "age": 30,
+    "photo": "https://i.pinimg.com/736x/80/a3/81/80a381651e645fbe1bc092215fc5598d.jpg",
+    "bio": "Enjoy meaningful connections, travel, and trying new things.",
+    "city": "Kumbakonam",
+    "interests": [
+      "Travel",
+      "Books",
+      "Coffee"
+    ],
+    "likesMe": false
+  }
+]

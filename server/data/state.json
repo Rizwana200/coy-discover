@@ -1,0 +1,214 @@
+{
+  "swipes": [
+    {
+      "profileId": "me",
+      "targetId": "p4",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:27.230Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p5",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:29.489Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p6",
+      "direction": "like",
+      "timestamp": "2026-11-19T10:56:32.462Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p7",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:38.588Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p8",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:39.987Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p9",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:42.054Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p10",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:43.469Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p11",
+      "direction": "like",
+      "timestamp": "2026-11-19T10:56:45.147Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p12",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:48.540Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p13",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:50.538Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p14",
+      "direction": "pass",
+      "timestamp": "2026-11-19T10:56:52.057Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p15",
+      "direction": "like",
+      "timestamp": "2026-11-19T10:56:53.788Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p1",
+      "direction": "pass",
+      "timestamp": "2026-11-19T11:18:51.221Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p2",
+      "direction": "pass",
+      "timestamp": "2026-11-19T11:18:53.379Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p3",
+      "direction": "like",
+      "timestamp": "2026-11-19T11:18:54.783Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p16",
+      "direction": "pass",
+      "timestamp": "2026-11-20T08:42:44.921Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p17",
+      "direction": "like",
+      "timestamp": "2026-11-20T08:42:46.209Z"
+    },
+    {
+      "profileId": "me",
+      "targetId": "p18",
+      "direction": "pass",
+      "timestamp": "2026-11-20T08:42:47.660Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p1",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:30.458Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p2",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:31.926Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p3",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:33.604Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p4",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:35.682Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p5",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:37.669Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p6",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:40.994Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p7",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:47.305Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p8",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:00:48.712Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p9",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:03:23.713Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p10",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:03:25.522Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p11",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:03:27.275Z"
+    },
+    {
+      "profileId": "473dfb80-b691-421a-b34d-2b4fb53db9fb",
+      "targetId": "p12",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:03:28.685Z"
+    },
+    {
+      "profileId": "b9efdec8-e2bc-4fa5-b517-1bf6d5c80d1e",
+      "targetId": "p1",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:04:18.064Z"
+    },
+    {
+      "profileId": "b9efdec8-e2bc-4fa5-b517-1bf6d5c80d1e",
+      "targetId": "p2",
+      "direction": "pass",
+      "timestamp": "2026-11-20T09:04:20.116Z"
+    },
+    {
+      "profileId": "b9efdec8-e2bc-4fa5-b517-1bf6d5c80d1e",
+      "targetId": "p3",
+      "direction": "like",
+      "timestamp": "2026-11-20T09:04:21.530Z"
+    },
+    {
+      "profileId": "b9efdec8-e2bc-4fa5-b517-1bf6d5c80d1e",
+      "targetId": "p4",
+      "direction": "like",
+      "timestamp": "2026-11-20T09:04:25.834Z"
+    },
+    {
+      "profileId": "b9efdec8-e2bc-4fa5-b517-1bf6d5c80d1e",
+      "targetId": "p5",
+      "direction": "like",
+      "timestamp": "2026-11-20T09:04:40.826Z"
+    }
+  ]
+}
