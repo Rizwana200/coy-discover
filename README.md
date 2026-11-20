@@ -3,6 +3,8 @@
 > A profile discovery application built with **React**, **Vite**, **Node.js**, **Express**, and **Supabase PostgreSQL**.
 > Discover profiles, ❤️ like or ❌ pass, view matches, revisit skipped profiles, and manage your swipe history.
 
+🌐 **Live Demo:** [Visit Coy Discover](https://coy-discover-lsak.onrender.com)
+
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
