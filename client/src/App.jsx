@@ -19,7 +19,6 @@ const API = (
   import.meta.env.VITE_API_URL || "http://localhost:5000"
 ).replace(/\/+$/, "");
 
-// Generate and retain one ID for each browser visitor
 function getVisitorId() {
   let visitorId = localStorage.getItem("coy-visitor-id");
 
@@ -37,7 +36,6 @@ function getVisitorId() {
 
 const VISITOR_ID = getVisitorId();
 
-// Attach visitor ID to every backend request
 function apiFetch(endpoint, options = {}) {
   return fetch(`${API}${endpoint}`, {
     ...options,
@@ -50,6 +48,8 @@ function apiFetch(endpoint, options = {}) {
 
 const FALLBACK_PHOTO =
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&h=1100&q=85";
+
+const SWIPE_ANIMATION_TIME = 350;
 
 export default function App() {
   const [profiles, setProfiles] = useState([]);
@@ -88,9 +88,15 @@ export default function App() {
         throw new Error("Unable to load data from the server.");
       }
 
-      setProfiles(await feedResponse.json());
-      setMatches(await matchResponse.json());
-      setSkipped(await skippedResponse.json());
+      const [feedData, matchData, skippedData] = await Promise.all([
+        feedResponse.json(),
+        matchResponse.json(),
+        skippedResponse.json(),
+      ]);
+
+      setProfiles(feedData);
+      setMatches(matchData);
+      setSkipped(skippedData);
     } catch (err) {
       setError(
         "Couldn't connect to Coy server. Make sure the backend is running."
@@ -105,9 +111,9 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    profiles.slice(1, 4).forEach((p) => {
+    profiles.slice(1, 4).forEach((profile) => {
       const img = new Image();
-      img.src = p.photo;
+      img.src = profile.photo;
     });
   }, [profiles]);
 
@@ -116,36 +122,8 @@ export default function App() {
     setDrag({ x: 0, y: 0 });
   }
 
-  async function swipe(direction) {
-    if (!profiles.length || busyRef.current) return;
-
-    busyRef.current = true;
-    const current = profiles[0];
-
-    setIsDragging(false);
-    setDrag({
-      x: direction === "like" ? 600 : -600,
-      y: 30,
-    });
-
+  async function refreshSavedLists() {
     try {
-      const response = await apiFetch("/swipe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          profileId: current.id,
-          direction,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Swipe failed");
-      }
-
-      setProfiles((prev) => prev.filter((p) => p.id !== current.id));
-
       const [matchResponse, skippedResponse] = await Promise.all([
         apiFetch("/matches"),
         apiFetch("/skipped"),
@@ -158,18 +136,131 @@ export default function App() {
       if (skippedResponse.ok) {
         setSkipped(await skippedResponse.json());
       }
-
-      if (result.isMatch) {
-        setMatchProfile(current);
-      }
     } catch (err) {
-      await loadFeed();
-      setError(err.message || "Something went wrong. Try again.");
-    } finally {
-      resetDrag();
-      busyRef.current = false;
+      // A later visit or refresh will load the latest lists.
     }
   }
+
+  async function swipe(direction) {
+    if (!profiles.length || busyRef.current) return;
+
+    busyRef.current = true;
+
+    const current = profiles[0];
+
+    setIsDragging(false);
+    setError("");
+
+    setDrag({
+      x: direction === "like" ? 600 : -600,
+      y: 30,
+    });
+
+    const swipeRequest = apiFetch("/swipe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        profileId: current.id,
+        direction,
+      }),
+    }).then(async (response) => {
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Swipe failed");
+      }
+
+      return result;
+    });
+
+    const safeSwipeRequest = swipeRequest.then(
+      (result) => ({ result }),
+      (requestError) => ({ requestError })
+    );
+
+    await new Promise((resolve) =>
+      setTimeout(resolve, SWIPE_ANIMATION_TIME)
+    );
+
+    setProfiles((previous) =>
+      previous.filter((profile) => profile.id !== current.id)
+    );
+
+    resetDrag();
+
+    if (direction === "pass") {
+      setSkipped((previous) => [
+        current,
+        ...previous.filter((profile) => profile.id !== current.id),
+      ]);
+    }
+
+    const outcome = await safeSwipeRequest;
+
+    if (outcome.requestError) {
+      setProfiles((previous) =>
+        previous.some((profile) => profile.id === current.id)
+          ? previous
+          : [current, ...previous]
+      );
+
+      if (direction === "pass") {
+        setSkipped((previous) =>
+          previous.filter((profile) => profile.id !== current.id)
+        );
+      }
+
+      setError(
+        outcome.requestError.message ||
+          "Something went wrong. Please try again."
+      );
+    } else {
+      if (outcome.result.isMatch) {
+        setMatchProfile(current);
+      }
+
+      refreshSavedLists();
+    }
+
+    busyRef.current = false;
+  }
+
+  // Keyboard controls: Left Arrow = Pass, Right Arrow = Like.
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (tab !== "discover" || loading || !profiles.length) return;
+
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+        return;
+      }
+
+      const target = event.target;
+
+      if (
+        target instanceof HTMLElement &&
+        (target.isContentEditable ||
+          target.closest(
+            "input, textarea, select, button, [contenteditable='true']"
+          ))
+      ) {
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        swipe("pass");
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        swipe("like");
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [tab, loading, profiles, swipe]);
 
   async function undoPass(profile) {
     if (busyRef.current) return;
@@ -226,7 +317,9 @@ export default function App() {
         setMatchProfile(profile);
       }
     } catch (err) {
-      setActionError(err.message || "Could not like this profile. Try again.");
+      setActionError(
+        err.message || "Could not like this profile. Try again."
+      );
     } finally {
       busyRef.current = false;
       setBusy(false);
@@ -259,6 +352,7 @@ export default function App() {
     if (!startRef.current) return;
 
     const x = dragRef.current.x;
+
     startRef.current = null;
     setIsDragging(false);
 
@@ -459,10 +553,12 @@ export default function App() {
                         />
 
                         <div className="photo-shade" />
+
                         <div
                           className="swipe-glow like-glow"
                           style={{ opacity: likeOpacity }}
                         />
+
                         <div
                           className="swipe-glow pass-glow"
                           style={{ opacity: passOpacity }}
@@ -474,6 +570,7 @@ export default function App() {
                         >
                           LIKE
                         </div>
+
                         <div
                           className="swipe-stamp pass-stamp"
                           style={{ opacity: passOpacity }}
@@ -559,6 +656,7 @@ export default function App() {
                       The feeling was mutual. That's where it begins.
                     </p>
                   </div>
+
                   <div className="matches-total">
                     <Heart size={16} fill="currentColor" />
                     {matches.length}
@@ -602,10 +700,12 @@ export default function App() {
                               }
                             }}
                           />
+
                           <span className="match-heart">
                             <Heart size={15} fill="currentColor" />
                           </span>
                         </div>
+
                         <div className="match-info">
                           <h3>
                             {profile.name}, {profile.age}
@@ -633,6 +733,7 @@ export default function App() {
                       Changed your mind? You can revisit anyone here.
                     </p>
                   </div>
+
                   <div className="matches-total">
                     <Archive size={16} />
                     {skipped.length}
@@ -700,10 +801,12 @@ export default function App() {
                           <h3>
                             {profile.name}, {profile.age}
                           </h3>
+
                           <p className="skipped-location">
                             <MapPin size={13} />
                             {profile.city}
                           </p>
+
                           <p className="skipped-bio">{profile.bio}</p>
 
                           <div className="skipped-interests">
@@ -788,8 +891,14 @@ export default function App() {
       </nav>
 
       {matchProfile && (
-        <div className="match-overlay" onClick={() => setMatchProfile(null)}>
-          <div className="match-modal" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="match-overlay"
+          onClick={() => setMatchProfile(null)}
+        >
+          <div
+            className="match-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="confetti" aria-hidden="true">
               {Array.from({ length: 18 }).map((_, i) => (
                 <i key={i} style={{ "--i": i }}>
@@ -813,9 +922,11 @@ export default function App() {
             </div>
 
             <p className="eyebrow">A CONNECTION MADE</p>
+
             <h1>
               It's a <span>match!</span>
             </h1>
+
             <p className="match-message">
               You and {matchProfile.name} liked each other. Maybe this is the
               start of something.
@@ -825,9 +936,11 @@ export default function App() {
               <div className="match-photo you-photo">
                 <span>YOU</span>
               </div>
+
               <div className="match-photo other-photo">
                 <img src={matchProfile.photo} alt={matchProfile.name} />
               </div>
+
               <div className="match-heart-center">
                 <Heart size={22} fill="currentColor" />
               </div>
@@ -842,6 +955,7 @@ export default function App() {
             >
               See your matches <Heart size={17} fill="currentColor" />
             </button>
+
             <button
               className="text-button"
               onClick={() => setMatchProfile(null)}

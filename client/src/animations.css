@@ -1,7 +1,12 @@
+
 /* animations.css — import AFTER index.css */
 
 /* ---------- Ambient background ---------- */
-.app-shell { position: relative; isolation: isolate; }
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
 .app-shell::before,
 .app-shell::after {
   content: "";
@@ -15,32 +20,77 @@
   pointer-events: none;
   animation: blob-drift 18s ease-in-out infinite alternate;
 }
-.app-shell::before { top: -160px; left: -140px; background: #e4d0ff; }
-.app-shell::after  { bottom: -180px; right: -140px; background: #ffd3e2; animation-delay: -9s; }
 
-@keyframes blob-drift {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(60px, 40px) scale(1.15); }
+.app-shell::before {
+  top: -160px;
+  left: -140px;
+  background: #e4d0ff;
 }
 
-.topbar { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
-.brand-icon { animation: heartbeat 2.4s ease-in-out infinite; }
+.app-shell::after {
+  bottom: -180px;
+  right: -140px;
+  background: #ffd3e2;
+  animation-delay: -9s;
+}
+
+@keyframes blob-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(60px, 40px) scale(1.15);
+  }
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+}
+
+.brand-icon {
+  animation: heartbeat 2.4s ease-in-out infinite;
+}
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  12% { transform: scale(1.12); }
-  24% { transform: scale(1); }
-  36% { transform: scale(1.08); }
+  0%, 100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.12);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.08);
+  }
 }
 
 /* ---------- Entrance animations ---------- */
-.welcome-section > div:first-child { animation: fade-up 0.6s cubic-bezier(.2,.8,.3,1) both; }
-.side-panel { animation: fade-up 0.6s 0.1s cubic-bezier(.2,.8,.3,1) both; }
-.main-panel { animation: fade-up 0.45s cubic-bezier(.2,.8,.3,1) both; }
+.welcome-section > div:first-child {
+  animation: fade-up 0.6s cubic-bezier(.2,.8,.3,1) both;
+}
+
+.side-panel {
+  animation: fade-up 0.6s 0.1s cubic-bezier(.2,.8,.3,1) both;
+}
+
+.main-panel {
+  animation: fade-up 0.45s cubic-bezier(.2,.8,.3,1) both;
+}
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .welcome-section h1 span {
@@ -51,47 +101,122 @@
   color: transparent;
   animation: shimmer 4s linear infinite;
 }
-@keyframes shimmer { to { background-position: 200% center; } }
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
 
 /* ---------- Sidebar / nav ---------- */
-.side-link { position: relative; }
-.side-link:hover { transform: translateX(4px); }
+.side-link {
+  position: relative;
+}
+
+.side-link:hover {
+  transform: translateX(4px);
+}
+
 .side-link.active::before {
   content: "";
   position: absolute;
-  left: 0; top: 22%; bottom: 22%;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
   width: 3px;
   border-radius: 3px;
   background: #8c52e9;
   animation: grow-y 0.3s ease both;
 }
-@keyframes grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
-.match-count, .nav-badge { animation: badge-pop 0.4s cubic-bezier(.3,1.8,.5,1) both; }
-@keyframes badge-pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
 
-.mobile-nav button { transition: color 0.2s, transform 0.2s; }
-.mobile-nav button:active { transform: scale(0.9); }
-.mobile-nav button.active svg { animation: nav-bounce 0.4s cubic-bezier(.3,1.8,.5,1); }
-@keyframes nav-bounce { from { transform: translateY(6px) scale(0.8); } to { transform: none; } }
+.match-count,
+.nav-badge {
+  animation: badge-pop 0.4s cubic-bezier(.3,1.8,.5,1) both;
+}
+
+@keyframes badge-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.mobile-nav button {
+  transition: color 0.2s, transform 0.2s;
+}
+
+.mobile-nav button:active {
+  transform: scale(0.9);
+}
+
+.mobile-nav button.active svg {
+  animation: nav-bounce 0.4s cubic-bezier(.3,1.8,.5,1);
+}
+
+@keyframes nav-bounce {
+  from {
+    transform: translateY(6px) scale(0.8);
+  }
+  to {
+    transform: none;
+  }
+}
 
 /* ---------- Swipe card ---------- */
-.card-enter { animation: card-in 0.5s cubic-bezier(.2,.8,.3,1) backwards; }
+
+/*
+  Important:
+  card-enter animates opacity only.
+  The card's transform is controlled by React during dragging/swiping.
+  This prevents the entrance animation from fighting the swipe movement.
+*/
+
+.card-enter {
+  animation: card-in 0.35s ease-out backwards;
+}
+
 @keyframes card-in {
-  from { opacity: 0; transform: translateY(26px) scale(0.93); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.card-back-one { animation: back-float 5s ease-in-out infinite alternate; }
-.card-back-two { animation: back-float 6s ease-in-out infinite alternate-reverse; }
+.card-back-one {
+  animation: back-float 5s ease-in-out infinite alternate;
+}
+
+.card-back-two {
+  animation: back-float 6s ease-in-out infinite alternate-reverse;
+}
+
 @keyframes back-float {
-  from { translate: 0 0; }
-  to   { translate: 0 -4px; }
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -4px;
+  }
 }
 
-.profile-card { will-change: transform; }
+.profile-card {
+  will-change: transform;
+}
 
-/* colour glow that follows the drag direction */
+/* Colour glow that follows the drag direction */
 .swipe-glow {
   position: absolute;
   inset: 0;
@@ -99,32 +224,85 @@
   z-index: 2;
   opacity: 0;
 }
-.like-glow { background: radial-gradient(circle at 20% 15%, rgba(115, 226, 179, 0.55), transparent 65%); }
-.pass-glow { background: radial-gradient(circle at 80% 15%, rgba(255, 142, 170, 0.55), transparent 65%); }
 
-.swipe-stamp { text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); }
+.like-glow {
+  background: radial-gradient(
+    circle at 20% 15%,
+    rgba(115, 226, 179, 0.55),
+    transparent 65%
+  );
+}
 
-.profile-content > * { animation: fade-up 0.5s cubic-bezier(.2,.8,.3,1) backwards; }
-.profile-content > :nth-child(2) { animation-delay: 0.08s; }
-.profile-content > :nth-child(3) { animation-delay: 0.14s; }
-.profile-content > :nth-child(4) { animation-delay: 0.2s; }
+.pass-glow {
+  background: radial-gradient(
+    circle at 80% 15%,
+    rgba(255, 142, 170, 0.55),
+    transparent 65%
+  );
+}
 
-.interest-tag { transition: background 0.2s; }
+.swipe-stamp {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
 
-/* skeleton while loading */
+.profile-content > * {
+  animation: fade-up 0.5s cubic-bezier(.2,.8,.3,1) backwards;
+}
+
+.profile-content > :nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.profile-content > :nth-child(3) {
+  animation-delay: 0.14s;
+}
+
+.profile-content > :nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.interest-tag {
+  transition: background 0.2s;
+}
+
+/* Skeleton while loading */
 .profile-card.skeleton {
-  background: linear-gradient(100deg, #ece6f4 30%, #f8f4fd 50%, #ece6f4 70%);
+  background: linear-gradient(
+    100deg,
+    #ece6f4 30%,
+    #f8f4fd 50%,
+    #ece6f4 70%
+  );
   background-size: 250% 100%;
   animation: skeleton 1.3s linear infinite;
   cursor: default;
 }
-@keyframes skeleton { to { background-position: -150% 0; } }
+
+@keyframes skeleton {
+  to {
+    background-position: -150% 0;
+  }
+}
 
 /* ---------- Action buttons ---------- */
-.action-button { position: relative; }
-.action-button:active { transform: scale(0.88); }
-.pass-button:hover { color: #fff; background: #fa7f9f; border-color: transparent; transform: scale(1.08) rotate(-8deg); }
-.like-button:hover { transform: scale(1.1) rotate(6deg); }
+.action-button {
+  position: relative;
+}
+
+.action-button:active {
+  transform: scale(0.88);
+}
+
+.pass-button:hover {
+  color: #fff;
+  background: #fa7f9f;
+  border-color: transparent;
+  transform: scale(1.08) rotate(-8deg);
+}
+
+.like-button:hover {
+  transform: scale(1.1) rotate(6deg);
+}
 
 .like-button::after {
   content: "";
@@ -135,35 +313,87 @@
   animation: pulse-ring 2.2s ease-out infinite;
   pointer-events: none;
 }
+
 @keyframes pulse-ring {
-  from { transform: scale(1); opacity: 0.6; }
-  to   { transform: scale(1.55); opacity: 0; }
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1.55);
+    opacity: 0;
+  }
 }
 
-.swipe-hint span { display: inline-block; animation: nudge 1.8s ease-in-out infinite; }
-.swipe-hint span:last-child { animation-delay: 0.9s; }
-@keyframes nudge { 50% { transform: translateX(3px); } }
+.swipe-hint span {
+  display: inline-block;
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+.swipe-hint span:last-child {
+  animation-delay: 0.9s;
+}
+
+@keyframes nudge {
+  50% {
+    transform: translateX(3px);
+  }
+}
 
 /* ---------- Grids (matches / skipped) ---------- */
-.match-card, .skipped-card {
+.match-card,
+.skipped-card {
   animation: grid-in 0.5s cubic-bezier(.2,.8,.3,1) backwards;
   animation-delay: calc(var(--i, 0) * 70ms);
 }
+
 @keyframes grid-in {
-  from { opacity: 0; transform: translateY(22px) scale(0.95); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.match-image-wrap img, .skipped-image-wrap img { transition: transform 0.5s cubic-bezier(.2,.8,.3,1); }
-.match-card:hover img, .skipped-card:hover img { transform: scale(1.07); }
-.match-heart { animation: heartbeat 2.4s ease-in-out infinite; }
 
-.empty-heart, .placeholder-icon { animation: float 3.2s ease-in-out infinite; }
-@keyframes float { 50% { transform: translateY(-8px); } }
+.match-image-wrap img,
+.skipped-image-wrap img {
+  transition: transform 0.5s cubic-bezier(.2,.8,.3,1);
+}
 
-.action-error { animation: shake 0.4s ease; }
+.match-card:hover img,
+.skipped-card:hover img {
+  transform: scale(1.07);
+}
+
+.match-heart {
+  animation: heartbeat 2.4s ease-in-out infinite;
+}
+
+.empty-heart,
+.placeholder-icon {
+  animation: float 3.2s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.action-error {
+  animation: shake 0.4s ease;
+}
+
 @keyframes shake {
-  25% { transform: translateX(-6px); }
-  75% { transform: translateX(6px); }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
 }
 
 /* ---------- Match modal ---------- */
@@ -175,17 +405,53 @@
   color: transparent;
   animation: shimmer 3s linear infinite;
 }
-.match-photo { animation: photo-in 0.7s 0.15s cubic-bezier(.2,1.2,.4,1) backwards; }
-.you-photo   { --from: -90px; }
-.other-photo { --from: 90px; animation-delay: 0.25s; }
-@keyframes photo-in {
-  from { opacity: 0; transform: translateX(var(--from)) scale(0.6) rotate(-12deg); }
-  to   { opacity: 1; transform: none; }
-}
-.match-heart-center { animation: heart-burst 0.6s 0.7s cubic-bezier(.3,1.8,.5,1) backwards, heartbeat 1.6s 1.3s infinite; }
-@keyframes heart-burst { from { transform: scale(0); } to { transform: scale(1); } }
 
-.confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.match-photo {
+  animation: photo-in 0.7s 0.15s cubic-bezier(.2,1.2,.4,1) backwards;
+}
+
+.you-photo {
+  --from: -90px;
+}
+
+.other-photo {
+  --from: 90px;
+  animation-delay: 0.25s;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--from)) scale(0.6) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.match-heart-center {
+  animation:
+    heart-burst 0.6s 0.7s cubic-bezier(.3,1.8,.5,1) backwards,
+    heartbeat 1.6s 1.3s infinite;
+}
+
+@keyframes heart-burst {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .confetti i {
   position: absolute;
   bottom: -24px;
@@ -195,18 +461,50 @@
   animation: float-up 3s ease-in infinite;
   animation-delay: calc(var(--i) * 0.14s);
 }
-.confetti i:nth-child(3n)   { color: #f08ab5; animation-duration: 3.6s; }
-.confetti i:nth-child(3n+1) { color: #9558e7; animation-duration: 2.6s; }
-@keyframes float-up {
-  0%   { opacity: 0; transform: translateY(0) rotate(0); }
-  15%  { opacity: 0.85; }
-  100% { opacity: 0; transform: translateY(-460px) rotate(40deg); }
+
+.confetti i:nth-child(3n) {
+  color: #f08ab5;
+  animation-duration: 3.6s;
 }
-.match-modal > *:not(.confetti):not(.modal-close) { position: relative; z-index: 1; }
-.modal-close { z-index: 2; transition: transform 0.2s; }
-.modal-close:hover { transform: rotate(90deg); }
+
+.confetti i:nth-child(3n+1) {
+  color: #9558e7;
+  animation-duration: 2.6s;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0);
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-460px) rotate(40deg);
+  }
+}
+
+.match-modal > *:not(.confetti):not(.modal-close) {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-close {
+  z-index: 2;
+  transition: transform 0.2s;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .app-shell::before, .app-shell::after, .confetti { display: none; }
+  .app-shell::before,
+  .app-shell::after,
+  .confetti {
+    display: none;
+  }
 }
